@@ -4,18 +4,18 @@
 void drawGradient() {
     glBegin(GL_QUADS);
 
-    // Desenha o gradiente horizontalmente, alterando o vermelho (R)
-    for (int x = 0; x < 256; ++x) {
-        float r = x / 255.0f; // Valor normalizado de R (0 a 1)
-        float xpos = -1.0f + 2.0f * (x / 255.0f); // Converte para coordenadas NDC
+        // Desenha o gradiente horizontalmente, alterando o vermelho (R)
+        for (int x = 0; x < 256; ++x) {
+            float r = x / 255.0f; // Valor normalizado de R (0 a 1)
+            float xpos = -1.0f + 2.0f * (x / 255.0f); // Converte para coordenadas NDC
 
-        // Desenha uma faixa vertical de largura 1 pixel
-        glColor3f(r, 0.0f, 0.0f); // Define cor (R, G, B)
-        glVertex2f(xpos, -1.0f);  // Ponto inferior esquerdo
-        glVertex2f(xpos + 0.01f, -1.0f);  // Ponto inferior direito
-        glVertex2f(xpos + 0.01f, 1.0f);   // Ponto superior direito
-        glVertex2f(xpos, 1.0f);   // Ponto superior esquerdo
-    }
+            // Desenha uma faixa vertical de largura 1 pixel
+            glColor3f(r, 0.0f, 0.0f); // Define cor (R, G, B)
+            glVertex2f(xpos, -1.0f);  // Ponto inferior esquerdo
+            glVertex2f(xpos + 0.01f, -1.0f);  // Ponto inferior direito
+            glVertex2f(xpos + 0.01f, 1.0f);   // Ponto superior direito
+            glVertex2f(xpos, 1.0f);   // Ponto superior esquerdo
+        }
 
     glEnd();
 }

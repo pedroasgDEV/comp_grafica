@@ -64,9 +64,9 @@ Triangle triangle = triangleInit;
 // Renderiza um triângulo
 void renderTriangle(const Triangle& triangle) {
     glBegin(GL_TRIANGLES);
-    glVertex2f(triangle.a[0], triangle.a[1]);
-    glVertex2f(triangle.b[0], triangle.b[1]);
-    glVertex2f(triangle.c[0], triangle.c[1]);
+        glVertex2f(triangle.a[0], triangle.a[1]);
+        glVertex2f(triangle.b[0], triangle.b[1]);
+        glVertex2f(triangle.c[0], triangle.c[1]);
     glEnd();
 }
 
