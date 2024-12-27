@@ -1,14 +1,13 @@
 all:
-	g++ main2d.cpp -o main2d -lglfw -lGL
-	g++ main3d.cpp -o main3d -lglfw -lGL
-
-2d:
+	g++ main1.cpp -o main1 -lglfw -lGL
+	g++ main2.cpp -o main2 -lglfw -lGL
+1:
 	make 
-	./main2d
+	./main1
 
-3d:
+2:
 	make 
-	./main3d
+	./main2
 
 clear:
-	rm main2d main3d
+	rm main1 main2
