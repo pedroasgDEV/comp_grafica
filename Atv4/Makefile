@@ -8,7 +8,7 @@ all:
 	./main1
 
 2:
-	make
+	make 
 	./main2
 
 3:
