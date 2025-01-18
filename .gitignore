@@ -1,5 +1,2 @@
 Doxyfile
-**/docs/
-latex
-latex/
-/docs/
+.pdf
