@@ -31,10 +31,10 @@ int main(void)
     /// Irá apresentar a janela no contexto atual
     glfwMakeContextCurrent(window);
 
-    /// Irá definir a cor de fundo da tela, aqui sera roxo 
+    /// Irá definir a core de fundo da tela, aqui sera roxo 
     glClearColor(0.55, 0, .90, 1);
 
-    /// Esse looping ficará ativo enquanto a janelar não for fechada
+    /// Esse looping ficará ativo enquanot a janelar não for fechada
     while (!glfwWindowShouldClose(window))
     {
         /// Renderiza a janela
@@ -51,11 +51,3 @@ int main(void)
     glfwTerminate();
     return 0;
 }
-
-/**************************************************************************************
- *@brief Resultados
- * 
- * Para fazer a aplicação basica irei ultilizar a biblioteca GLFW que ultiliza o OpenGL,
- * OpenGl ES e Vulkan. Eu a escolhi por ser mais simples, rapida e ter suporte ao Wayland.
- * A aplicação será apresentar uma tela com o nome "Hello World" e com o fundo roxo.
-**************************************************************************************/

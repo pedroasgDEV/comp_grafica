@@ -1,3 +1,5 @@
 Doxyfile
-Latex/
-Latex/*
+**/docs/
+latex
+latex/
+/docs/
