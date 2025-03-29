@@ -6,12 +6,14 @@
 
 using namespace std;
 
+// Representação de uma cor em RGB
 struct RGB{
     float r;
     float g;
     float b;
 };
 
+// Representação de uma cor em CMYK
 struct CMYK{
     float c;
     float m;
@@ -19,10 +21,11 @@ struct CMYK{
     float k;
 };
 
-
+// Converte de RGB para CMYK
 CMYK convert (RGB in){
     CMYK result;
 
+    // Trasforma em base 1
     in = {
         in.r / 255.0f,
         in.g / 255.0f,
@@ -41,14 +44,17 @@ int main(){
     RGB in;
     CMYK out;
 
+    // Pega os dados do RGB
     in = {
         255.0,
         128.0,
         64.0
     };
 
+    // Converte para CMYK
     out = convert(in);
 
+    // Imprime em CMYK
     cout << fixed << setprecision(1)
          << "C: " << out.c * 100 << "%" << endl
          << "M: " << out.m * 100 << "%" << endl

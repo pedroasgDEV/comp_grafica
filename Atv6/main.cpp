@@ -14,7 +14,7 @@ Triangle triangle = {
     {0.5f, -0.5f, 1.0f}
 };
 
-// Renderiza um triângulo com cada ponto em uma cor
+// Renderiza um triângulo
 void renderTriangle(const Triangle& triangle) {
     glBegin(GL_TRIANGLES);
         glColor3f(1.0f, 0.0f, 0.0f);
@@ -27,17 +27,14 @@ void renderTriangle(const Triangle& triangle) {
 }
 
 int main() {
-    if (!glfwInit()) return -1; // Irá iniciaar a biblioteca e verificar se foi iniciada corretamente
+    if (!glfwInit()) return -1;
 
-    // Irá criar e definir a janela, sua resolução, titulo e etc...
     GLFWwindow* window = glfwCreateWindow(1024, 576, "Triangle Transformation", NULL, NULL);
-    // Irá verificar ser a janela foi criada corretamente
     if (!window) {
         glfwTerminate();
         return -1;
     }
 
-    // Irá apresentar a janela no contexto atual e as cores do background
     glfwMakeContextCurrent(window);
     glClearColor(0.1, 0.1, 0.1, 1);
 

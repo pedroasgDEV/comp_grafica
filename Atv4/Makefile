@@ -15,5 +15,5 @@ all:
 	make
 	./main3
 
-clear:
+clean:
 	rm main1 main2 main3

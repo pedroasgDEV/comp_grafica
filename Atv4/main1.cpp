@@ -21,14 +21,17 @@ void drawGradient() {
 }
 
 int main() {
-    if (!glfwInit()) return -1;
+    if (!glfwInit()) return -1; // Irá iniciaar a biblioteca e verificar se foi iniciada corretamente
 
+    // Irá criar e definir a janela, sua resolução, titulo e etc...
     GLFWwindow* window = glfwCreateWindow(1024, 576, "RGB Gradient", NULL, NULL);
+    // Irá verificar ser a janela foi criada corretamente
     if (!window) {
         glfwTerminate();
         return -1;
     }
 
+    /// Irá apresentar a janela no contexto atual e as cores do background
     glfwMakeContextCurrent(window);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Fundo preto
 

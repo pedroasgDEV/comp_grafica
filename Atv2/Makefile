@@ -5,5 +5,5 @@ run:
 	make 
 	./main
 
-clear:
+clean:
 	rm main

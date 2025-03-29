@@ -10,5 +10,5 @@ all:
 	make 
 	./main3d
 
-clear:
+clean:
 	rm main2d main3d

@@ -9,5 +9,5 @@ all:
 	make 
 	./main2
 
-clear:
+clean:
 	rm main1 main2

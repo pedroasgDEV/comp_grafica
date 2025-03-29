@@ -1,15 +1,16 @@
 #include <GLFW/glfw3.h>
+#include <array>
 #include <vector>
 
-typedef std::vector<float> point;
-
+// Representação das cooredanadas e do triangulo
+typedef std::array<float, 3> point;
 struct Triangle {
     point a, b, c;
 };
 
+// Faz a multiplicação de matrizes
 point multiplyMatrixVector(const std::vector<std::vector<float>>& matrix, const point& vec) {
-    point result(matrix.size(), 0.0f);
-
+    point result = {0.0f, 0.0f, 0.0f};
     for (size_t i = 0; i < matrix.size(); i++)
         for (size_t j = 0; j < vec.size(); j++)
             result[i] += matrix[i][j] * vec[j];
@@ -17,6 +18,7 @@ point multiplyMatrixVector(const std::vector<std::vector<float>>& matrix, const 
     return result;
 }
 
+//  Calcula a Traslação 2D
 point translation2D(float dx, float dy, const point& a) {
     std::vector<std::vector<float>> translationMatrix = {
         {1, 0, dx},
@@ -27,6 +29,7 @@ point translation2D(float dx, float dy, const point& a) {
     return multiplyMatrixVector(translationMatrix, a);
 }
 
+//  Calcula a escala 2D
 point scale2D(float sx, float sy, const point& a) {
     std::vector<std::vector<float>> scaleMatrix = {
         {sx, 0,  0},
@@ -51,7 +54,7 @@ Triangle scaledTriangle = {
     scale2D(1.25f, 1.25f, triangleInit.c)
 };
 
-// Triângulo com composição
+// Triângulo com composição de escala  e translação
 Triangle compositionTriangle = {
     translation2D(0.5f, -0.2f, scaledTriangle.a),
     translation2D(0.5f, -0.2f, scaledTriangle.b),
@@ -72,34 +75,40 @@ void renderTriangle(const Triangle& triangle) {
 
 // Callback de teclado
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-    if (action == GLFW_PRESS) {
+    if (action == GLFW_PRESS) { // Se a tecla for pressionada
         switch (key){
+            // Troca o triângulo atual pelo escalado se for pressionado A
             case GLFW_KEY_A:
-                triangle = scaledTriangle; // Troca para o triângulo escalado
+                triangle = scaledTriangle;
                 break;
+            // Troca o triângulo atual pelo com composição se for pressionado C
             case GLFW_KEY_C: 
-                triangle = compositionTriangle; // Troca para o triângulo com composição
+                triangle = compositionTriangle;
                 break;
-            case GLFW_KEY_ESCAPE: /// Se a tecla for ESC chama a função que fecha a janela
+            // Se a tecla for ESC chama a função que fecha a janela se for pressionado ESC
+            case GLFW_KEY_ESCAPE:
                 glfwSetWindowShouldClose(window, true);
                 break;
             default:
                 break;
         }
-    } else if (action == GLFW_RELEASE) {
+    } else if (action == GLFW_RELEASE) { // Se a tecla for solta
         triangle = triangleInit; // Volta ao triângulo inicial
     }
 }
 
 int main() {
-    if (!glfwInit()) return -1;
-
+    if (!glfwInit()) return -1; // Irá iniciaar a biblioteca e verificar se foi iniciada corretamente
+    
+    // Irá criar e definir a janela, sua resolução, titulo e etc...
     GLFWwindow* window = glfwCreateWindow(1024, 576, "Triangle Transformation", NULL, NULL);
+    // Irá verificar ser a janela foi criada corretamente
     if (!window) {
         glfwTerminate();
         return -1;
     }
 
+    // Irá apresentar a janela no contexto atual e as cores do background
     glfwMakeContextCurrent(window);
     glClearColor(0.55, 0, 0.90, 1);
 
